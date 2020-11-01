@@ -52,6 +52,16 @@ function MainLayout({ children, title = 'Next.js App' }) {
             margin-top: 3rem;
             padding: 1rem;
           }
+
+          a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.2s ease-in-out;
+          }
+
+          a:hover {
+            color: rgba(0, 0, 0, 0.7);
+          }
         `}
       </style>
     </>

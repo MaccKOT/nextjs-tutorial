@@ -1,0 +1,23 @@
+/* Component-Level CSS */
+
+$color: crimson;
+
+.container {
+  padding: 3rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.error {
+  color: $color;
+}
+
+a.link {
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+a.link:hover {
+  text-decoration: underline !important;
+}
