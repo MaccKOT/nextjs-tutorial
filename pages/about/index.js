@@ -1,4 +1,5 @@
 import Router from 'next/router';
+import MainLayout from '../../layouts/MainLayout';
 
 export default function About() {
   const linkClickHandler = () => {
@@ -6,7 +7,7 @@ export default function About() {
   };
 
   return (
-    <>
+    <MainLayout title="About app">
       <h1>About page</h1>
 
       <button onClick={linkClickHandler}>Back to home page</button>
@@ -17,6 +18,6 @@ export default function About() {
       >
         Go to posts page
       </button>
-    </>
+    </MainLayout>
   );
 }

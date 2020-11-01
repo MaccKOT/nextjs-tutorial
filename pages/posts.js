@@ -1,13 +1,10 @@
-import Head from 'next/head';
+import MainLayout from '../layouts/MainLayout';
 
 export default function Posts() {
   return (
-    <>
-      <Head>
-        <title>Posts Page | Next.js course</title>
-      </Head>
+    <MainLayout title="Posts Page">
       <h1>Post's page</h1>
-    </>
+    </MainLayout>
   );
 }
 
