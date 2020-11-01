@@ -5,9 +5,7 @@ export default function Home() {
   return (
     <MainLayout>
       <div className={styles.container}>
-        <h1>Hello, Next.js</h1>
-        <div className={styles.flex}></div>
-
+        <h1>📌Hello, Next.js</h1>
         <p>
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et quia,
           laudantium perspiciatis quae, rem doloremque necessitatibus obcaecati
