@@ -4,13 +4,19 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "serve": "concurrently \"yarn:mock\" \"yarn:dev\"",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "mock": "json-server -w db.json -p 4200 -d 450"
   },
   "dependencies": {
     "next": "10.0.0",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "sass": "^1.28.0"
+  },
+  "devDependencies": {
+    "concurrently": "^5.3.0",
+    "json-server": "^0.16.2"
   }
 }
