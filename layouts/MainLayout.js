@@ -22,7 +22,7 @@ function MainLayout({ children, title = 'Next.js App' }) {
         <Link href="/posts">
           <a>Posts page</a>
         </Link>
-        <Link href="/post/25">
+        <Link href="/post/1">
           <a>Post page with id</a>
         </Link>
       </nav>

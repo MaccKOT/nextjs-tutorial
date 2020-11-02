@@ -1,29 +1,54 @@
-import { useState, useEffect } from 'react';
+// import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import MainLayout from '../layouts/MainLayout';
 
-export default function Posts() {
-  const [posts, setPosts] = useState([]);
+//функция выполняется на бэкенде!
+//console.log выведет данные в серверную консоль
+export async function getStaticProps() {
+  // Call an external API endpoint to get posts.
+  // You can use any data fetching library
+  const res = await fetch('http://localhost:4200/posts');
+  const posts = await res.json();
 
-  useEffect(() => {
-    async function loadPosts() {
-      const response = await fetch('http://localhost:4200/posts');
-      const json = await response.json();
-      setPosts(json);
-      // console.log(json);
-    }
+  // By returning { props: posts }, the Blog component
+  // will receive `posts` as a prop at build time
+  return {
+    props: {
+      posts,
+    },
+  };
+}
 
-    loadPosts();
-  }, []);
+export default function Posts({ posts }) {
+  //этот подход работает, но плох для СЕО, потому что изначально страница будет с пустым массивом, а данные обновятся только после прихода их с сервера
+  // const [posts, setPosts] = useState([]);
+
+  // useEffect(() => {
+  //   async function loadPosts() {
+  //     const response = await fetch('http://localhost:4200/posts');
+  //     const json = await response.json();
+  //     setPosts(json);
+  //     // console.log(json);
+  //   }
+
+  //   loadPosts();
+  // }, []);
 
   return (
     <MainLayout title="Posts Page">
       <h1>Post's page</h1>
 
-      <pre>{JSON.stringify(posts)}</pre>
+      {/* <pre>{JSON.stringify(posts, null, 2)}</pre> */}
+
+      <ul>
+        {posts.map((post) => (
+          <li key={post.id}>
+            <Link href={`/post/[id]`} as={`/post/${post.id}`}>
+              <a>{post.title}</a>
+            </Link>
+          </li>
+        ))}
+      </ul>
     </MainLayout>
   );
 }
-
-//posts
-
-// /post/id
