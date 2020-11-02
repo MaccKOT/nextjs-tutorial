@@ -1,13 +1,17 @@
+# NextJS Быстрый Курс - SSR на React JS [2020]
+
+by [Владилен Минин](https://www.youtube.com/watch?v=_EOrSmjdOZQ)
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
 
-First, run the development server:
+First, run the development server with json-server:
 
 ```bash
-npm run dev
+npm run serve
 # or
-yarn dev
+yarn serve
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
