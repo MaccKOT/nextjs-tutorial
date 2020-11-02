@@ -26,7 +26,7 @@ export default function Post({ post }: PostPageProps) {
 }
 
 export async function getStaticProps({ params }) {
-  const res = await fetch(`http://localhost:4200/posts/${params.id}`);
+  const res = await fetch(`${process.env.API_URL}/posts/${params.id}`);
   const post: MyPost = await res.json();
 
   return {

@@ -12,7 +12,7 @@ interface PostsPageProps {
 export async function getStaticProps() {
   // Call an external API endpoint to get posts.
   // You can use any data fetching library
-  const res = await fetch('http://localhost:4200/posts');
+  const res = await fetch(`${process.env.API_URL}/posts`);
   const posts: MyPost[] = await res.json();
 
   // By returning { props: posts }, the Blog component
