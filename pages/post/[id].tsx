@@ -1,10 +1,16 @@
 // import { useRouter } from 'next/router';
+import { NextPageContext } from 'next';
 import Link from 'next/link';
+import { MyPost } from '../../interfaces/post';
 import MainLayout from '../../layouts/MainLayout';
+
+interface PostPageProps {
+  post: MyPost;
+}
 
 //страница c динамическими параметрами поста в блоге
 
-export default function Post({ post }) {
+export default function Post({ post }: PostPageProps) {
   return (
     <MainLayout>
       <h1>
@@ -21,7 +27,7 @@ export default function Post({ post }) {
 
 export async function getStaticProps({ params }) {
   const res = await fetch(`http://localhost:4200/posts/${params.id}`);
-  const post = await res.json();
+  const post: MyPost = await res.json();
 
   return {
     props: {

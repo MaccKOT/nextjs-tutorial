@@ -1,6 +1,11 @@
 // import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { MyPost } from '../interfaces/post';
 import MainLayout from '../layouts/MainLayout';
+
+interface PostsPageProps {
+  posts: MyPost[];
+}
 
 //функция выполняется на бэкенде!
 //console.log выведет данные в серверную консоль
@@ -8,7 +13,7 @@ export async function getStaticProps() {
   // Call an external API endpoint to get posts.
   // You can use any data fetching library
   const res = await fetch('http://localhost:4200/posts');
-  const posts = await res.json();
+  const posts: MyPost[] = await res.json();
 
   // By returning { props: posts }, the Blog component
   // will receive `posts` as a prop at build time
@@ -19,7 +24,7 @@ export async function getStaticProps() {
   };
 }
 
-export default function Posts({ posts }) {
+export default function Posts({ posts }: PostsPageProps) {
   //этот подход работает, но плох для СЕО, потому что изначально страница будет с пустым массивом, а данные обновятся только после прихода их с сервера
   // const [posts, setPosts] = useState([]);
 

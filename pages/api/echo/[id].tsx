@@ -1,6 +1,8 @@
 // http://localhost:3000/api/echo/42
 
-export default function getById(req, res) {
+import { NextApiRequest, NextApiResponse } from 'next';
+
+export default function getById(req: NextApiRequest, res: NextApiResponse) {
   // res.statusCode = 200;
   // res.setHeader('Content-Type', 'application/json');
   // res.end(
